@@ -71,7 +71,9 @@ header.nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--b
 .toggles{display:flex;gap:6px}
 .tbtn{position:relative;display:grid;place-items:center;font:600 .75rem var(--mono);color:var(--ink);background:var(--card);border:1px solid transparent;box-shadow:var(--ring);border-radius:8px;height:34px;min-width:38px;padding:0 9px;cursor:pointer;-webkit-tap-highlight-color:transparent;transition-property:box-shadow,scale;transition-duration:150ms;transition-timing-function:ease-out}
 @media (hover:hover){.tbtn:hover{box-shadow:var(--ring-hover)}}
-.tbtn svg{grid-area:1/1;width:16px;height:16px;transition-property:opacity,scale,filter;transition-duration:300ms;transition-timing-function:var(--ease-out)}
+.tbtn svg{grid-area:1/1;width:16px;height:16px;transition-property:opacity;transition-duration:300ms;transition-timing-function:var(--ease-out)}
+@media (prefers-reduced-motion:no-preference){.tbtn svg{transition-property:opacity,scale,filter}}
+@media (prefers-reduced-motion:reduce){.tbtn svg{scale:1!important;filter:none!important}}
 .ico-moon{opacity:1}.ico-sun{opacity:0;scale:.25;filter:blur(4px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ico-moon{opacity:0;scale:.25;filter:blur(4px)}:root:not([data-theme="light"]) .ico-sun{opacity:1;scale:1;filter:none}}
 :root[data-theme="dark"] .ico-moon{opacity:0;scale:.25;filter:blur(4px)}:root[data-theme="dark"] .ico-sun{opacity:1;scale:1;filter:none}
@@ -156,7 +158,7 @@ h3{font-size:1.125rem;margin:0;line-height:1.3}
 .project .period{font:500 .78125rem var(--mono);color:var(--muted);white-space:nowrap}
 .project p{margin:0;color:var(--muted)}
 .project .link{margin-block-start:auto;padding-block-start:6px;font-weight:600;font-size:.875rem}
-.badge{display:inline-block;font:600 .6875rem var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--accent)}
+.badge{display:inline-block;font:600 .75rem var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--accent)}
 
 /* skills */
 .skill h3{display:flex;align-items:center;gap:10px;margin-block-end:14px}
@@ -213,8 +215,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
       <a href="#contact">Contact</a>
     </nav>
     <div class="toggles">
-      <button class="tbtn" id="langBtn" type="button" aria-label="Changer de langue / Switch language">FR</button>
-      <button class="tbtn" id="themeBtn" type="button" aria-label="Toggle dark mode"><svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></svg><svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg></button>
+      <button class="tbtn" id="langBtn" type="button" aria-label="FR, lire en français">FR</button>
+      <button class="tbtn" id="themeBtn" type="button" aria-label="Dark mode" aria-pressed="false"><svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></svg><svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg></button>
     </div>
   </div>
 </header>
@@ -252,7 +254,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
         <source srcset="assets/saliou.webp" type="image/webp">
         <img src="assets/saliou.jpg" width="560" height="560" alt="Saliou Diaw" fetchpriority="high">
       </picture>
-      <div class="layers stage" style="--i:3" aria-label="screen, api, database">
+      <div class="layers stage" style="--i:3">
         <div class="layer"><span class="dot"></span><span class="name">screen</span><span class="tech">React · TypeScript · Next.js</span></div>
         <div class="layer"><span class="dot"></span><span class="name">api</span><span class="tech">Laravel · Python</span></div>
         <div class="layer"><span class="dot"></span><span class="name">database</span><span class="tech">MySQL · PostgreSQL</span></div>
@@ -302,7 +304,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
             </ul>
             <ul lang="fr">
               <li>Je développe en équipe le logiciel de gestion des restaurants universitaires et des campus sociaux (SyGOST), que le personnel utilise tous les jours pour la restauration et l’hébergement.</li>
-              <li>Je suis l’un des principaux développeurs du SIRH et de la plateforme financière (Financial) : front React (TypeScript), API REST Laravel, MySQL.</li>
+              <li>Je suis l’un des principaux développeurs de SiRH et de la plateforme financière (Financial) : front React (TypeScript), API REST Laravel, MySQL.</li>
               <li>En tant que tech lead : code reviews, bonnes pratiques, suivi des livraisons sur Jira et accompagnement des stagiaires.</li>
             </ul>
             <div class="tagrow"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">REST</span><span class="tag">Jira</span><span class="tag" lang="en">Code review</span><span class="tag" lang="fr">Code review</span><span class="tag" lang="en">Mentoring</span><span class="tag" lang="fr">Mentorat</span></div>
@@ -353,7 +355,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
           <div class="top"><h3>SiRH</h3><span class="period"><span lang="en">Oct 2024 – now</span><span lang="fr">Oct. 2024 – auj.</span></span></div>
           <span class="badge"><span lang="en">Human resources</span><span lang="fr">Ressources humaines</span></span>
           <p lang="en">The HR system: staff records, contracts, leave, payroll and career progression. Built as a team; I’m one of its main developers.</p>
-          <p lang="fr">Le SIRH de l’établissement : dossiers du personnel, contrats, congés, paie et avancement. Développé en équipe ; j’en suis l’un des principaux développeurs.</p>
+          <p lang="fr">SiRH, le système RH de l’établissement : dossiers du personnel, contrats, congés, paie et avancement. Développé en équipe ; j’en suis l’un des principaux développeurs.</p>
           <div class="tagrow"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Laravel</span><span class="tag">MySQL</span></div>
           <a class="link" href="https://sirh.croust.sn/" target="_blank" rel="noopener">sirh.croust.sn ↗</a>
         </article>
@@ -421,9 +423,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
         <div class="card gh-card">
           <h3><span lang="en">On GitHub</span><span lang="fr">Sur GitHub</span></h3>
           <img lang="en" class="for-light" src="https://github-readme-stats-three-delta-98.vercel.app/api?username=zaldev&amp;include_all_commits=true&amp;count_private=true&amp;hide=stars,issues&amp;hide_rank=true&amp;show_icons=true&amp;hide_title=true&amp;hide_border=true&amp;bg_color=00000000&amp;disable_animations=true&amp;title_color=C2410C&amp;icon_color=C2410C&amp;text_color=526072" width="305" height="115" loading="lazy" alt="GitHub stats: total commits, pull requests and repositories contributed to">
-          <img lang="fr" class="for-light" src="https://github-readme-stats-three-delta-98.vercel.app/api?username=zaldev&amp;include_all_commits=true&amp;count_private=true&amp;hide=stars,issues&amp;hide_rank=true&amp;show_icons=true&amp;hide_title=true&amp;hide_border=true&amp;bg_color=00000000&amp;disable_animations=true&amp;locale=fr&amp;title_color=C2410C&amp;icon_color=C2410C&amp;text_color=526072" width="305" height="115" loading="lazy" alt="Statistiques GitHub : commits, pull requests et dépôts auxquels j’ai contribué">
+          <img lang="fr" class="for-light" src="https://github-readme-stats-three-delta-98.vercel.app/api?username=zaldev&amp;include_all_commits=true&amp;count_private=true&amp;hide=stars,issues&amp;hide_rank=true&amp;show_icons=true&amp;hide_title=true&amp;hide_border=true&amp;bg_color=00000000&amp;disable_animations=true&amp;locale=fr&amp;title_color=C2410C&amp;icon_color=C2410C&amp;text_color=526072" width="305" height="115" loading="lazy" alt="Statistiques GitHub : commits, pull requests et dépôts auxquels j’ai contribué">
           <img lang="en" class="for-dark" src="https://github-readme-stats-three-delta-98.vercel.app/api?username=zaldev&amp;include_all_commits=true&amp;count_private=true&amp;hide=stars,issues&amp;hide_rank=true&amp;show_icons=true&amp;hide_title=true&amp;hide_border=true&amp;bg_color=00000000&amp;disable_animations=true&amp;title_color=FF8A3D&amp;icon_color=FF8A3D&amp;text_color=9AA7B8" width="305" height="115" loading="lazy" alt="GitHub stats: total commits, pull requests and repositories contributed to">
-          <img lang="fr" class="for-dark" src="https://github-readme-stats-three-delta-98.vercel.app/api?username=zaldev&amp;include_all_commits=true&amp;count_private=true&amp;hide=stars,issues&amp;hide_rank=true&amp;show_icons=true&amp;hide_title=true&amp;hide_border=true&amp;bg_color=00000000&amp;disable_animations=true&amp;locale=fr&amp;title_color=FF8A3D&amp;icon_color=FF8A3D&amp;text_color=9AA7B8" width="305" height="115" loading="lazy" alt="Statistiques GitHub : commits, pull requests et dépôts auxquels j’ai contribué">
+          <img lang="fr" class="for-dark" src="https://github-readme-stats-three-delta-98.vercel.app/api?username=zaldev&amp;include_all_commits=true&amp;count_private=true&amp;hide=stars,issues&amp;hide_rank=true&amp;show_icons=true&amp;hide_title=true&amp;hide_border=true&amp;bg_color=00000000&amp;disable_animations=true&amp;locale=fr&amp;title_color=FF8A3D&amp;icon_color=FF8A3D&amp;text_color=9AA7B8" width="305" height="115" loading="lazy" alt="Statistiques GitHub : commits, pull requests et dépôts auxquels j’ai contribué">
         </div>
         <div class="card gh-card">
           <h3><span lang="en">Most used languages</span><span lang="fr">Langages les plus utilisés</span></h3>
@@ -507,6 +509,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
   function setLang(l) {
     root.dataset.lang = l; root.lang = l;
     langBtn.textContent = l === 'en' ? 'FR' : 'EN';
+    langBtn.setAttribute('aria-label', l === 'en' ? 'FR, lire en français' : 'EN, read in English');
     document.title = l === 'en' ? 'Saliou Diaw · Full-Stack Developer & Tech Lead' : 'Saliou Diaw · Développeur Full-Stack & Tech Lead';
   }
   setLang(lang);
@@ -515,10 +518,15 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
   // theme: saved choice, else follow the system
   var theme = qTheme || read('theme');
   if (theme) root.dataset.theme = theme;
+  var themeBtn = document.getElementById('themeBtn'), mq = matchMedia('(prefers-color-scheme: dark)');
+  function isDark() { return root.dataset.theme ? root.dataset.theme === 'dark' : mq.matches; }
+  function syncTheme() { themeBtn.setAttribute('aria-pressed', String(isDark())); }
+  syncTheme(); if (mq.addEventListener) mq.addEventListener('change', syncTheme);
   document.getElementById('themeBtn').addEventListener('click', function () {
-    var dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    var dark = isDark();
     root.classList.add('notx'); root.dataset.theme = dark ? 'light' : 'dark'; store('theme', root.dataset.theme);
     void root.offsetHeight; requestAnimationFrame(function () { root.classList.remove('notx'); });
+    syncTheme();
   });
 
   document.getElementById('yr').textContent = new Date().getFullYear();
