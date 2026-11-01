@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Saliou Diaw · Full-Stack Developer &amp; Tech Lead</title>
+<meta name="description" content="Saliou Diaw (Zal), full-stack developer and tech lead in Thiès, Senegal. React, TypeScript, Laravel, Python. Business platforms, from database to screen.">
+<meta property="og:title" content="Saliou Diaw · Full-Stack Developer & Tech Lead">
+<meta property="og:description" content="Business platforms, from database to screen. React, TypeScript, Laravel, Python.">
+<meta name="theme-color" content="#0B1220">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B1220'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='30' fill='%232DD4BF'%3ESD%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#FFFFFF; --bg-soft:#F3F6FA; --card:#FFFFFF; --ink:#0F172A; --muted:#526072; --line:#D9E0EA;
+  --accent:#0D9488; --accent-ink:#FFFFFF; --accent-soft:#E6F7F5; --shadow:0 1px 2px rgba(15,23,42,.06),0 8px 24px rgba(15,23,42,.06);
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Cantarell,Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"JetBrains Mono",Menlo,Consolas,"DejaVu Sans Mono",monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0B1220; --bg-soft:#0F1829; --card:#121C31; --ink:#E6EDF3; --muted:#9AA7B8; --line:#24304A;
+  --accent:#2DD4BF; --accent-ink:#06201D; --accent-soft:#10302E; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#0B1220; --bg-soft:#0F1829; --card:#121C31; --ink:#E6EDF3; --muted:#9AA7B8; --line:#24304A;
+  --accent:#2DD4BF; --accent-ink:#06201D; --accent-soft:#10302E; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  color-scheme:dark;}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:max(20px,env(safe-area-inset-left))}
+
+/* language switch: show only the active language */
+html[data-lang="en"] [lang="fr"]:not(html), html[data-lang="fr"] [lang="en"]:not(html){display:none!important}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:16px;height:64px}
+.brand{font:600 15px var(--mono);color:var(--ink)}
+.brand b{color:var(--accent)}
+.nav nav{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.nav nav a{color:var(--muted);font-size:14px;padding:6px 10px;border-radius:8px}
+.nav nav a:hover{color:var(--ink);background:var(--bg-soft);text-decoration:none}
+.toggles{display:flex;gap:6px}
+.tbtn{font:600 12px var(--mono);color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;height:32px;min-width:36px;padding:0 9px;cursor:pointer}
+.tbtn:hover{border-color:var(--accent)}
+@media (max-width:820px){.nav nav{display:none}.toggles{margin-left:auto}}
+
+/* hero */
+.hero{padding:72px 0 56px;background:radial-gradient(1200px 400px at 85% -10%,var(--accent-soft),transparent 70%)}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hello{font:500 15px var(--mono);color:var(--accent);margin:0 0 10px}
+h1{font-size:clamp(40px,7vw,68px);line-height:1.02;letter-spacing:-.03em;margin:0}
+.role{font-size:clamp(19px,2.4vw,23px);font-weight:600;margin:14px 0 6px}
+.lede{color:var(--muted);font-size:18px;max-width:34em;margin:0 0 26px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--muted);font-size:14px;margin-bottom:28px}
+.meta span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-right:8px;vertical-align:middle}
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;padding:11px 18px;border-radius:10px;border:1px solid var(--line);color:var(--ink);background:var(--card)}
+.btn:hover{text-decoration:none;border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn svg{width:18px;height:18px}
+
+/* layers diagram */
+.layers{display:grid;gap:14px}
+.layer{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;box-shadow:var(--shadow);position:relative}
+.layer:nth-child(2){margin-left:28px}.layer:nth-child(3){margin-left:56px}
+.layer .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);flex:none;box-shadow:0 0 0 4px var(--accent-soft)}
+.layer .name{font:600 15px var(--mono)}
+.layer .tech{margin-left:auto;color:var(--muted);font-size:14px;text-align:right}
+.layer + .layer::before{content:"";position:absolute;left:22px;top:-15px;height:16px;border-left:2px dashed var(--accent);transform:translateX(-28px) skewX(-30deg);opacity:.7}
+
+/* sections */
+section{padding:64px 0;border-top:1px solid var(--line)}
+section.alt{background:var(--bg-soft)}
+.kicker{font:600 13px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+h2{font-size:clamp(26px,3.4vw,34px);letter-spacing:-.02em;line-height:1.15;margin:0 0 28px}
+h3{font-size:18px;margin:0;line-height:1.3}
+.muted{color:var(--muted)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.grid3{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.grid2,.grid3{grid-template-columns:1fr}.hero{padding-top:44px}.layer:nth-child(2){margin-left:14px}.layer:nth-child(3){margin-left:28px}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
+
+/* about */
+.about{display:grid;grid-template-columns:1.3fr .7fr;gap:32px;align-items:start}
+.about p{margin:0 0 14px;font-size:17px}
+.facts{display:grid;gap:12px}
+.fact{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:10px;font-size:15px}
+.fact b{font-weight:600}
+@media (max-width:820px){.about{grid-template-columns:1fr}}
+
+/* timeline */
+.timeline{position:relative;display:grid;gap:18px}
+.job{display:grid;grid-template-columns:180px 1fr;gap:24px}
+.job .when{font:500 14px var(--mono);color:var(--muted);padding-top:22px}
+.job ul{margin:12px 0 0;padding-left:20px}
+.job li{margin:6px 0}
+.org{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.org .where{color:var(--muted);font-size:14px}
+.tagrow{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tag{font:500 12.5px var(--mono);padding:4px 9px;border-radius:999px;background:var(--accent-soft);color:var(--ink);border:1px solid color-mix(in srgb,var(--accent) 25%,transparent)}
+@media (max-width:720px){.job{grid-template-columns:1fr;gap:4px}.job .when{padding-top:0}}
+
+/* projects */
+.project{display:flex;flex-direction:column;gap:10px}
+.project .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.project .period{font:500 12.5px var(--mono);color:var(--muted);white-space:nowrap}
+.project p{margin:0;color:var(--muted)}
+.project .link{margin-top:auto;padding-top:6px;font-weight:600;font-size:14px}
+.badge{display:inline-block;font:600 11px var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--accent)}
+
+/* skills */
+.skill h3{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.skill h3 .ico{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);font:700 13px var(--mono)}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{font-size:14px;padding:5px 11px;border-radius:8px;border:1px solid var(--line);background:var(--bg)}
+.chip.core{border-color:var(--accent);font-weight:600}
+.legend{font-size:14px;color:var(--muted);margin:-14px 0 24px}
+.legend .chip{font-size:12px;padding:2px 8px}
+
+/* education & languages */
+.edu{display:grid;gap:14px}
+.edu .card{display:grid;grid-template-columns:1fr auto;gap:4px 16px}
+.edu .yr{font:500 14px var(--mono);color:var(--muted);white-space:nowrap}
+.lang{display:grid;gap:14px}
+.bar{height:8px;border-radius:99px;background:var(--line);overflow:hidden;margin-top:6px}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:99px}
+
+/* contact */
+.contact{text-align:center}
+.contact h2{margin-bottom:12px}
+.contact .lede{margin:0 auto 26px}
+.contact .cta{justify-content:center}
+footer{padding:28px 0 calc(28px + env(safe-area-inset-bottom));color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+@media (prefers-reduced-motion:no-preference){
+  .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+}
+@media print{header.nav,.toggles,.hero .cta{display:none}section{padding:24px 0}.reveal{opacity:1!important;transform:none!important}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">saliou<b>.</b>diaw</a>
+    <nav aria-label="Sections">
+      <a href="#about"><span lang="en">About</span><span lang="fr">Profil</span></a>
+      <a href="#experience"><span lang="en">Experience</span><span lang="fr">Expérience</span></a>
+      <a href="#projects"><span lang="en">Projects</span><span lang="fr">Projets</span></a>
+      <a href="#skills"><span lang="en">Skills</span><span lang="fr">Compétences</span></a>
+      <a href="#education"><span lang="en">Education</span><span lang="fr">Formation</span></a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="toggles">
+      <button class="tbtn" id="langBtn" type="button" aria-label="Changer de langue / Switch language">FR</button>
+      <button class="tbtn" id="themeBtn" type="button" aria-label="Toggle dark mode"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="vertical-align:-3px"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <p class="hello">Hello · Bonjour</p>
+        <h1><span lang="en">I'm Saliou Diaw.</span><span lang="fr">Je suis Saliou Diaw.</span></h1>
+        <p class="role"><span lang="en">Full-Stack Developer &amp; Tech Lead</span><span lang="fr">Développeur Full-Stack &amp; Tech Lead</span></p>
+        <p class="lede">
+          <span lang="en">I build business platforms end to end, from the database to the screen, and lead the team that ships them.</span>
+          <span lang="fr">Je conçois des plateformes métier de bout en bout, de la base de données à l'écran, et je dirige l'équipe qui les livre.</span>
+        </p>
+        <div class="meta">
+          <span>Thiès, Sénégal</span>
+          <span lang="en">Tech Lead at CROUS-T</span><span lang="fr">Tech Lead au CROUS-T</span>
+          <span lang="en">French · English</span><span lang="fr">Français · Anglais</span>
+        </div>
+        <div class="cta">
+          <a class="btn primary" href="#contact"><span lang="en">Get in touch</span><span lang="fr">Me contacter</span></a>
+          <a class="btn" href="https://github.com/zaldev" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+            GitHub</a>
+          <a class="btn" href="https://linkedin.com/in/salioudiaw" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+            LinkedIn</a>
+        </div>
+      </div>
+      <div class="layers" aria-label="screen, api, database">
+        <div class="layer"><span class="dot"></span><span class="name">screen</span><span class="tech">React · TypeScript · Next.js</span></div>
+        <div class="layer"><span class="dot"></span><span class="name">api</span><span class="tech">Laravel · Python</span></div>
+        <div class="layer"><span class="dot"></span><span class="name">database</span><span class="tech">MySQL · PostgreSQL</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap about">
+      <div class="reveal">
+        <p class="kicker"><span lang="en">About</span><span lang="fr">Profil</span></p>
+        <h2><span lang="en">Developer first, lead by trust.</span><span lang="fr">Développeur d'abord, leader par la confiance.</span></h2>
+        <p lang="en">I'm a full-stack developer with 2+ years of professional experience building and shipping production web applications. My core is <b>React with TypeScript</b> on the front end and <b>Laravel</b> on the back end, with solid <b>Python</b> and <b>Java</b>.</p>
+        <p lang="fr">Développeur full-stack, j'ai plus de 2 ans d'expérience professionnelle à concevoir et livrer des applications web en production. Mon cœur de métier : <b>React avec TypeScript</b> côté front et <b>Laravel</b> côté back, avec une bonne maîtrise de <b>Python</b> et <b>Java</b>.</p>
+        <p lang="en">At CROUS-T, the regional student-services authority in Thiès, I lead development: I own delivery, review code, set standards and mentor interns from their first day to their first production release.</p>
+        <p lang="fr">Au CROUS-T, l'établissement régional des œuvres universitaires de Thiès, je dirige le développement : je porte la livraison, je relis le code, je fixe les standards et j'accompagne les stagiaires de leur premier jour à leur première mise en production.</p>
+        <p lang="en">Outside work, I run my own servers at home. Owning the whole stack is how I learn best.</p>
+        <p lang="fr">En dehors du travail, j'héberge mes propres serveurs à la maison : maîtriser toute la chaîne, c'est ma façon d'apprendre.</p>
+      </div>
+      <div class="card facts reveal">
+        <div class="fact"><span lang="en">Role</span><span lang="fr">Poste</span><b lang="en">Software Engineer · Tech Lead</b><b lang="fr">Ingénieur logiciel · Tech Lead</b></div>
+        <div class="fact"><span lang="en">Company</span><span lang="fr">Structure</span><b>CROUS-T</b></div>
+        <div class="fact"><span lang="en">Based in</span><span lang="fr">Basé à</span><b>Thiès, Sénégal</b></div>
+        <div class="fact"><span lang="en">Experience</span><span lang="fr">Expérience</span><b lang="en">2+ years</b><b lang="fr">2+ ans</b></div>
+        <div class="fact"><span lang="en">Degree</span><span lang="fr">Diplôme</span><b lang="en">Master's, Software Eng.</b><b lang="fr">Master, Génie logiciel</b></div>
+        <div class="fact" style="border:0;padding:0"><span lang="en">Languages</span><span lang="fr">Langues</span><b lang="en">French, English</b><b lang="fr">Français, Anglais</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="alt">
+    <div class="wrap">
+      <p class="kicker"><span lang="en">Experience</span><span lang="fr">Expérience</span></p>
+      <h2><span lang="en">Where I've worked</span><span lang="fr">Mon parcours</span></h2>
+      <div class="timeline">
+        <div class="job reveal">
+          <div class="when"><span lang="en">Oct 2024 – Present</span><span lang="fr">Oct. 2024 – Aujourd'hui</span></div>
+          <div class="card">
+            <div class="org"><h3><span lang="en">Software Engineer · Tech Lead</span><span lang="fr">Ingénieur logiciel · Tech Lead</span></h3><a href="https://croust.sn/" target="_blank" rel="noopener">CROUS-T</a><span class="where">Thiès, Sénégal</span></div>
+            <ul lang="en">
+              <li>Designed and built the management software for university restaurants and student campuses, used daily by staff to run catering and housing.</li>
+              <li>Designed and implemented the Human Resources system end to end: React (TypeScript) front end, Laravel REST API, MySQL.</li>
+              <li>Lead the team: code reviews, coding standards, delivery planning and tracking, and mentoring interns through to production contributions.</li>
+            </ul>
+            <ul lang="fr">
+              <li>Conception et développement du logiciel de gestion des restaurants universitaires et des campus sociaux, utilisé chaque jour par le personnel pour la restauration et l'hébergement.</li>
+              <li>Conception et mise en œuvre du système de gestion des ressources humaines de bout en bout : front React (TypeScript), API REST Laravel, MySQL.</li>
+              <li>Direction de l'équipe : revues de code, standards de développement, planification et suivi des livraisons, encadrement des stagiaires jusqu'à leurs contributions en production.</li>
+            </ul>
+            <div class="tagrow"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">REST</span><span class="tag">Jira</span><span class="tag" lang="en">Code review</span><span class="tag" lang="fr">Revue de code</span><span class="tag" lang="en">Mentoring</span><span class="tag" lang="fr">Mentorat</span></div>
+          </div>
+        </div>
+        <div class="job reveal">
+          <div class="when"><span lang="en">Aug – Oct 2023</span><span lang="fr">Août – oct. 2023</span></div>
+          <div class="card">
+            <div class="org"><h3><span lang="en">IT Assistant</span><span lang="fr">Assistant informatique</span></h3><a href="https://www.pasteur.sn/" target="_blank" rel="noopener">Institut Pasteur de Dakar</a><span class="where">Diamniadio, Sénégal</span></div>
+            <ul lang="en">
+              <li>Provided IT maintenance and technical support across a leading biomedical research institute.</li>
+              <li>Managed and maintained the organization's internal IT systems.</li>
+            </ul>
+            <ul lang="fr">
+              <li>Maintenance informatique et support technique au sein d'un institut de recherche biomédicale de référence.</li>
+              <li>Gestion et maintenance des systèmes informatiques internes.</li>
+            </ul>
+            <div class="tagrow"><span class="tag" lang="en">IT support</span><span class="tag" lang="fr">Support IT</span><span class="tag" lang="en">Systems administration</span><span class="tag" lang="fr">Administration systèmes</span></div>
+          </div>
+        </div>
+        <div class="job reveal">
+          <div class="when"><span lang="en">Dec 2021 – Feb 2022</span><span lang="fr">Déc. 2021 – févr. 2022</span></div>
+          <div class="card">
+            <div class="org"><h3><span lang="en">Software Developer</span><span lang="fr">Développeur logiciel</span></h3><a href="https://kritek.eu/" target="_blank" rel="noopener">Kritek</a><span class="where"><span lang="en">Czech Republic · remote</span><span lang="fr">République tchèque · à distance</span></span></div>
+            <ul lang="en">
+              <li>Developed web applications and custom PrestaShop e-commerce templates and modules for a European client.</li>
+              <li>Collaborated remotely across time zones.</li>
+            </ul>
+            <ul lang="fr">
+              <li>Développement d'applications web, de templates et de modules e-commerce PrestaShop sur mesure pour un client européen.</li>
+              <li>Collaboration à distance sur plusieurs fuseaux horaires.</li>
+            </ul>
+            <div class="tagrow"><span class="tag">PHP</span><span class="tag">PrestaShop</span><span class="tag">JavaScript</span><span class="tag" lang="en">Remote</span><span class="tag" lang="fr">Télétravail</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <p class="kicker"><span lang="en">Projects</span><span lang="fr">Projets</span></p>
+      <h2><span lang="en">Platforms in production at CROUS-T</span><span lang="fr">Plateformes en production au CROUS-T</span></h2>
+      <div class="grid2">
+        <article class="card project reveal">
+          <div class="top"><h3>SiRH</h3><span class="period"><span lang="en">Oct 2024 – now</span><span lang="fr">Oct. 2024 – auj.</span></span></div>
+          <span class="badge"><span lang="en">Human resources</span><span lang="fr">Ressources humaines</span></span>
+          <p lang="en">The HR information system: staff records, careers and HR workflows, designed and built end to end.</p>
+          <p lang="fr">Le système d'information RH : dossiers du personnel, carrières et processus RH, conçu et développé de bout en bout.</p>
+          <div class="tagrow"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Laravel</span><span class="tag">MySQL</span></div>
+          <a class="link" href="https://sirh.croust.sn/" target="_blank" rel="noopener">sirh.croust.sn ↗</a>
+        </article>
+        <article class="card project reveal">
+          <div class="top"><h3>SyGOST</h3><span class="period"><span lang="en">Jan 2025 – now</span><span lang="fr">Janv. 2025 – auj.</span></span></div>
+          <span class="badge"><span lang="en">Restaurants &amp; campus housing</span><span lang="fr">Restauration &amp; hébergement</span></span>
+          <p lang="en">Runs the university restaurants and student housing: meals and meal tickets, restaurants and concession holders, invoicing, and bed allocation.</p>
+          <p lang="fr">Pilote les restaurants universitaires et l'hébergement étudiant : repas et tickets, restaurants et repreneurs, facturation, et attribution des lits.</p>
+          <div class="tagrow"><span class="tag">React</span><span class="tag">Laravel</span><span class="tag">MySQL</span></div>
+          <a class="link" href="https://sygost.croust.sn/" target="_blank" rel="noopener">sygost.croust.sn ↗</a>
+        </article>
+        <article class="card project reveal">
+          <div class="top"><h3>Financial</h3><span class="period"><span lang="en">Oct 2025 – now</span><span lang="fr">Oct. 2025 – auj.</span></span></div>
+          <span class="badge"><span lang="en">Finance</span><span lang="fr">Finances</span></span>
+          <p lang="en">Financial management for the institution: budgets, expenses and their supporting documents.</p>
+          <p lang="fr">La gestion financière de l'établissement : budgets, dépenses et pièces justificatives.</p>
+          <div class="tagrow"><span class="tag">React</span><span class="tag">Laravel</span><span class="tag">MySQL</span></div>
+          <a class="link" href="https://financial.croust.sn/" target="_blank" rel="noopener">financial.croust.sn ↗</a>
+        </article>
+        <article class="card project reveal">
+          <div class="top"><h3>Silos</h3><span class="period"><span lang="en">Nov 2024 – Feb 2025</span><span lang="fr">Nov. 2024 – févr. 2025</span></span></div>
+          <span class="badge"><span lang="en">Delivered</span><span lang="fr">Livré</span></span>
+          <p lang="en">[One line on what Silos does: to confirm.]</p>
+          <p lang="fr">[Une ligne sur ce que fait Silos : à confirmer.]</p>
+          <div class="tagrow"><span class="tag">React</span><span class="tag">Laravel</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="alt">
+    <div class="wrap">
+      <p class="kicker"><span lang="en">Skills</span><span lang="fr">Compétences</span></p>
+      <h2><span lang="en">Tools I use to ship</span><span lang="fr">Mes outils pour livrer</span></h2>
+      <p class="legend"><span class="chip core">React</span> <span lang="en">= what I use every day</span><span lang="fr">= mon quotidien</span></p>
+      <div class="grid3">
+        <div class="card skill reveal">
+          <h3><span class="ico">UI</span><span lang="en">Front end</span><span lang="fr">Front-end</span></h3>
+          <div class="chips"><span class="chip core">React</span><span class="chip core">TypeScript</span><span class="chip core">JavaScript</span><span class="chip">Next.js</span><span class="chip">Svelte / SvelteKit</span><span class="chip">Angular</span><span class="chip">Tailwind CSS</span><span class="chip">Ant Design</span><span class="chip">daisyUI</span><span class="chip">Bootstrap</span><span class="chip">Framer Motion</span></div>
+        </div>
+        <div class="card skill reveal">
+          <h3><span class="ico">API</span><span lang="en">Back end</span><span lang="fr">Back-end</span></h3>
+          <div class="chips"><span class="chip core">Laravel</span><span class="chip core">PHP</span><span class="chip core">REST APIs</span><span class="chip">Python</span><span class="chip">Django</span><span class="chip">FastAPI</span><span class="chip">Java</span><span class="chip">Spring Boot</span><span class="chip">Node.js</span></div>
+        </div>
+        <div class="card skill reveal">
+          <h3><span class="ico">DB</span><span lang="en">Data</span><span lang="fr">Données</span></h3>
+          <div class="chips"><span class="chip core">MySQL</span><span class="chip core">SQL</span><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">Redis</span></div>
+        </div>
+        <div class="card skill reveal">
+          <h3><span class="ico">OPS</span><span lang="en">Infrastructure</span><span lang="fr">Infrastructure</span></h3>
+          <div class="chips"><span class="chip core">Git / GitHub</span><span class="chip core">Linux</span><span class="chip">Docker</span><span class="chip">Nginx</span><span class="chip" lang="en">Self-hosting</span><span class="chip" lang="fr">Auto-hébergement</span><span class="chip">OpenMediaVault</span></div>
+        </div>
+        <div class="card skill reveal">
+          <h3><span class="ico">LD</span><span lang="en">Leadership</span><span lang="fr">Leadership</span></h3>
+          <div class="chips"><span class="chip core" lang="en">Code review</span><span class="chip core" lang="fr">Revue de code</span><span class="chip core" lang="en">Mentoring interns</span><span class="chip core" lang="fr">Encadrement de stagiaires</span><span class="chip" lang="en">Delivery planning</span><span class="chip" lang="fr">Planification des livraisons</span><span class="chip" lang="en">Coding standards</span><span class="chip" lang="fr">Standards de code</span><span class="chip" lang="en">Agile with Jira</span><span class="chip" lang="fr">Agile avec Jira</span></div>
+        </div>
+        <div class="card skill reveal">
+          <h3><span class="ico">HI</span><span lang="en">People skills</span><span lang="fr">Savoir-être</span></h3>
+          <div class="chips"><span class="chip" lang="en">Communication</span><span class="chip" lang="fr">Communication</span><span class="chip" lang="en">Clarity</span><span class="chip" lang="fr">Clarté</span><span class="chip" lang="en">Emotional intelligence</span><span class="chip" lang="fr">Intelligence émotionnelle</span><span class="chip" lang="en">Clear documentation</span><span class="chip" lang="fr">Documentation claire</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="wrap grid2" style="align-items:start">
+      <div>
+        <p class="kicker"><span lang="en">Education</span><span lang="fr">Formation</span></p>
+        <h2><span lang="en">Trained in Thiès</span><span lang="fr">Formé à Thiès</span></h2>
+        <div class="edu">
+          <div class="card reveal"><h3><span lang="en">Master's in Computer Science, Software Engineering</span><span lang="fr">Master en informatique, Génie logiciel</span></h3><span class="yr">2021 – 2025</span><span class="muted">Université Iba Der Thiam de Thiès · <span lang="en">with honors (Mention Bien)</span><span lang="fr">mention Bien</span></span></div>
+          <div class="card reveal"><h3><span lang="en">Bachelor's in Software Engineering</span><span lang="fr">Licence en Génie logiciel</span></h3><span class="yr">2019 – 2020</span><span class="muted">Université Iba Der Thiam de Thiès</span></div>
+          <div class="card reveal"><h3><span lang="en">DUT, Electrical &amp; Industrial Computer Engineering</span><span lang="fr">DUT Génie électrique et informatique industrielle</span></h3><span class="yr">2017 – 2019</span><span class="muted"><span lang="en">University Institute of Technology, Thiès</span><span lang="fr">Institut universitaire de technologie de Thiès</span></span></div>
+        </div>
+      </div>
+      <div>
+        <p class="kicker"><span lang="en">Beyond work</span><span lang="fr">Hors travail</span></p>
+        <h2><span lang="en">Languages &amp; interests</span><span lang="fr">Langues &amp; centres d'intérêt</span></h2>
+        <div class="card lang reveal">
+          <div><b lang="en">French</b><b lang="fr">Français</b> <span class="muted">· <span lang="en">native</span><span lang="fr">langue maternelle</span></span><div class="bar"><i style="width:100%"></i></div></div>
+          <div><b lang="en">English</b><b lang="fr">Anglais</b> <span class="muted">· <span lang="en">advanced professional proficiency</span><span lang="fr">niveau professionnel avancé</span></span><div class="bar"><i style="width:82%"></i></div></div>
+        </div>
+        <div class="card reveal" style="margin-top:14px">
+          <h3 style="margin-bottom:8px"><span lang="en">Homelab</span><span lang="fr">Homelab</span></h3>
+          <p class="muted" style="margin:0 0 12px" lang="en">A NAS on OpenMediaVault running my own photo library (Immich), file sync (Seafile) and media server (Plex with the *arr stack), reachable from anywhere over Tailscale.</p>
+          <p class="muted" style="margin:0 0 12px" lang="fr">Un NAS sous OpenMediaVault qui héberge ma photothèque (Immich), ma synchronisation de fichiers (Seafile) et mon serveur multimédia (Plex et la suite *arr), accessible partout via Tailscale.</p>
+          <div class="chips"><span class="chip" lang="en">Reading</span><span class="chip" lang="fr">Lecture</span><span class="chip" lang="en">Movies</span><span class="chip" lang="fr">Cinéma</span><span class="chip" lang="en">Music</span><span class="chip" lang="fr">Musique</span><span class="chip">Sport</span><span class="chip">Linux</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="alt contact">
+    <div class="wrap">
+      <p class="kicker">Contact</p>
+      <h2><span lang="en">Get in touch</span><span lang="fr">Me contacter</span></h2>
+      <p class="lede"><span lang="en">Questions about my work, a project, or just to talk shop: my inbox is open.</span><span lang="fr">Une question sur mon travail, un projet, ou simplement pour échanger : ma boîte est ouverte.</span></p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:saliou.pro@proton.me">saliou.pro@proton.me</a>
+        <a class="btn" href="https://linkedin.com/in/salioudiaw" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/zaldev" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Saliou Diaw</span>
+    <span lang="en">Built by hand: HTML and CSS, no framework.</span><span lang="fr">Fait main : HTML et CSS, sans framework.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  function store(k, v) { try { v === undefined ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch (e) {} }
+  function read(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+
+  // ?lang=fr / ?theme=dark in the URL win, so a link can open in a given language
+  var q = new URLSearchParams(location.search);
+  var qLang = /^(en|fr)$/.test(q.get('lang')) ? q.get('lang') : null;
+  var qTheme = /^(light|dark)$/.test(q.get('theme')) ? q.get('theme') : null;
+
+  // language: URL, else saved choice, else the browser's language
+  var lang = qLang || read('lang') || ((navigator.language || 'en').toLowerCase().indexOf('fr') === 0 ? 'fr' : 'en');
+  var langBtn = document.getElementById('langBtn');
+  function setLang(l) {
+    root.dataset.lang = l; root.lang = l;
+    langBtn.textContent = l === 'en' ? 'FR' : 'EN';
+    document.title = l === 'en' ? 'Saliou Diaw · Full-Stack Developer & Tech Lead' : 'Saliou Diaw · Développeur Full-Stack & Tech Lead';
+  }
+  setLang(lang);
+  langBtn.addEventListener('click', function () { lang = lang === 'en' ? 'fr' : 'en'; setLang(lang); store('lang', lang); });
+
+  // theme: saved choice, else follow the system
+  var theme = qTheme || read('theme');
+  if (theme) root.dataset.theme = theme;
+  document.getElementById('themeBtn').addEventListener('click', function () {
+    var dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme = dark ? 'light' : 'dark'; store('theme', root.dataset.theme);
+  });
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // reveal on scroll
+  var items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px' });
+    items.forEach(function (el) { io.observe(el); });
+  } else { items.forEach(function (el) { el.classList.add('in'); }); }
+})();
+</script>
+</body>
+</html>
