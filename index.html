@@ -167,6 +167,18 @@ h3{font-size:1.125rem;margin:0;line-height:1.3}
 .legend{font-size:.875rem;color:var(--muted);margin:-18px 0 28px}
 .legend .chip{font-size:.75rem;padding:2px 8px}
 
+/* live GitHub cards */
+.gh-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-block-start:20px}
+.gh-card{display:flex;flex-direction:column}
+.gh-card h3{margin-block-end:8px}
+.gh-card img{margin-block:auto}
+.gh-card img{display:block;width:100%;max-width:420px;height:auto}
+.for-dark{display:none!important}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .for-light{display:none!important}:root:not([data-theme="light"]) .for-dark{display:block!important}}
+:root[data-theme="dark"] .for-light{display:none!important}:root[data-theme="dark"] .for-dark{display:block!important}
+.gh-note{font-size:.875rem;color:var(--muted);margin:12px 0 0}
+@media (max-width:640px){.gh-stats{grid-template-columns:minmax(0,1fr)}}
+
 /* education & languages */
 .edu{display:grid;gap:14px}
 .edu .card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px}
@@ -402,6 +414,25 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
           <div class="chips"><span class="chip" lang="en">Communication</span><span class="chip" lang="fr">Communication</span><span class="chip" lang="en">Clarity</span><span class="chip" lang="fr">Clarté</span><span class="chip" lang="en">Emotional intelligence</span><span class="chip" lang="fr">Intelligence émotionnelle</span><span class="chip" lang="en">Clear documentation</span><span class="chip" lang="fr">Documentation claire</span></div>
         </div>
       </div>
+      <!-- Live GitHub cards from my own github-readme-stats instance. Colors match the orange
+           accent (light: C2410C / 526072, dark: FF8A3D / 9AA7B8); update them if the accent changes. -->
+      <div class="gh-stats">
+        <div class="card gh-card">
+          <h3><span lang="en">On GitHub</span><span lang="fr">Sur GitHub</span></h3>
+          <img lang="en" class="for-light" src="https://github-readme-stats-three-delta-98.vercel.app/api?username=zaldev&amp;include_all_commits=true&amp;count_private=true&amp;hide=stars,issues&amp;hide_rank=true&amp;show_icons=true&amp;hide_title=true&amp;hide_border=true&amp;bg_color=00000000&amp;disable_animations=true&amp;title_color=C2410C&amp;icon_color=C2410C&amp;text_color=526072" width="305" height="115" loading="lazy" alt="GitHub stats: total commits, pull requests and repositories contributed to">
+          <img lang="fr" class="for-light" src="https://github-readme-stats-three-delta-98.vercel.app/api?username=zaldev&amp;include_all_commits=true&amp;count_private=true&amp;hide=stars,issues&amp;hide_rank=true&amp;show_icons=true&amp;hide_title=true&amp;hide_border=true&amp;bg_color=00000000&amp;disable_animations=true&amp;locale=fr&amp;title_color=C2410C&amp;icon_color=C2410C&amp;text_color=526072" width="305" height="115" loading="lazy" alt="Statistiques GitHub : commits, pull requests et dépôts auxquels j’ai contribué">
+          <img lang="en" class="for-dark" src="https://github-readme-stats-three-delta-98.vercel.app/api?username=zaldev&amp;include_all_commits=true&amp;count_private=true&amp;hide=stars,issues&amp;hide_rank=true&amp;show_icons=true&amp;hide_title=true&amp;hide_border=true&amp;bg_color=00000000&amp;disable_animations=true&amp;title_color=FF8A3D&amp;icon_color=FF8A3D&amp;text_color=9AA7B8" width="305" height="115" loading="lazy" alt="GitHub stats: total commits, pull requests and repositories contributed to">
+          <img lang="fr" class="for-dark" src="https://github-readme-stats-three-delta-98.vercel.app/api?username=zaldev&amp;include_all_commits=true&amp;count_private=true&amp;hide=stars,issues&amp;hide_rank=true&amp;show_icons=true&amp;hide_title=true&amp;hide_border=true&amp;bg_color=00000000&amp;disable_animations=true&amp;locale=fr&amp;title_color=FF8A3D&amp;icon_color=FF8A3D&amp;text_color=9AA7B8" width="305" height="115" loading="lazy" alt="Statistiques GitHub : commits, pull requests et dépôts auxquels j’ai contribué">
+        </div>
+        <div class="card gh-card">
+          <h3><span lang="en">Most used languages</span><span lang="fr">Langages les plus utilisés</span></h3>
+          <img lang="en" class="for-light" src="https://github-readme-stats-three-delta-98.vercel.app/api/top-langs/?username=zaldev&amp;layout=compact&amp;langs_count=8&amp;hide_title=true&amp;hide_border=true&amp;bg_color=00000000&amp;disable_animations=true&amp;title_color=C2410C&amp;icon_color=C2410C&amp;text_color=526072" width="300" height="160" loading="lazy" alt="Most used programming languages on GitHub">
+          <img lang="fr" class="for-light" src="https://github-readme-stats-three-delta-98.vercel.app/api/top-langs/?username=zaldev&amp;layout=compact&amp;langs_count=8&amp;hide_title=true&amp;hide_border=true&amp;bg_color=00000000&amp;disable_animations=true&amp;locale=fr&amp;title_color=C2410C&amp;icon_color=C2410C&amp;text_color=526072" width="300" height="160" loading="lazy" alt="Langages de programmation les plus utilisés sur GitHub">
+          <img lang="en" class="for-dark" src="https://github-readme-stats-three-delta-98.vercel.app/api/top-langs/?username=zaldev&amp;layout=compact&amp;langs_count=8&amp;hide_title=true&amp;hide_border=true&amp;bg_color=00000000&amp;disable_animations=true&amp;title_color=FF8A3D&amp;icon_color=FF8A3D&amp;text_color=9AA7B8" width="300" height="160" loading="lazy" alt="Most used programming languages on GitHub">
+          <img lang="fr" class="for-dark" src="https://github-readme-stats-three-delta-98.vercel.app/api/top-langs/?username=zaldev&amp;layout=compact&amp;langs_count=8&amp;hide_title=true&amp;hide_border=true&amp;bg_color=00000000&amp;disable_animations=true&amp;locale=fr&amp;title_color=FF8A3D&amp;icon_color=FF8A3D&amp;text_color=9AA7B8" width="300" height="160" loading="lazy" alt="Langages de programmation les plus utilisés sur GitHub">
+        </div>
+      </div>
+      <p class="gh-note"><span lang="en">Live from <a href="https://github.com/zaldev" target="_blank" rel="noopener">github.com/zaldev</a>, including private work.</span><span lang="fr">En direct de <a href="https://github.com/zaldev" target="_blank" rel="noopener">github.com/zaldev</a>, travail privé inclus.</span></p>
     </div>
   </section>
 
